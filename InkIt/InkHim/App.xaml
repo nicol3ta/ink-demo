@@ -1,0 +1,27 @@
+﻿<Application
+    x:Class="InkHim.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InkHim"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <Color x:Key="InkColor01">#464655</Color>
+        <Color x:Key="InkColor02">#94958B</Color>
+        <Color x:Key="InkColor03">#B7B6C1</Color>
+        <Color x:Key="InkColor04">#D5CFE1</Color>
+        <Color x:Key="InkColor05">#EDDFEF</Color>
+
+        <SolidColorBrush x:Key="InkBrush01"
+                         Color="{StaticResource InkColor01}" />
+        <SolidColorBrush x:Key="InkBrush02"
+                         Color="{StaticResource InkColor02}" />
+        <SolidColorBrush x:Key="InkBrush03"
+                         Color="{StaticResource InkColor03}" />
+        <SolidColorBrush x:Key="InkBrush04"
+                         Color="{StaticResource InkColor04}" />
+        <SolidColorBrush x:Key="InkBrush05"
+                         Color="{StaticResource InkColor05}" />
+      
+    </Application.Resources>
+</Application>

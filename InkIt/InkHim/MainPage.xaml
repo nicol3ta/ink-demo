@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="InkHim.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InkHim"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar Background="{StaticResource InkBrush01}"
+                    Foreground="{StaticResource InkBrush03}">
+            <CommandBar.Content>
+                <Grid />
+            </CommandBar.Content>
+            <AppBarButton Click="PickAFileButton_Click"
+                          Icon="OpenFile"
+                          Label="Load picture" 
+                          Foreground="{StaticResource InkBrush03}"/>
+            <AppBarButton Icon="ClearSelection"
+                          Label="Clear ink"
+                          Click="clearAll_Click"
+                          Foreground="{StaticResource InkBrush03}" />           
+            <AppBarButton Icon="Font"
+                          Label="Recognize text"
+                          Click="reco_Click"
+                          Foreground="{StaticResource InkBrush03}" />
+            <AppBarButton Icon="Save"
+                          Label="Save"
+                          Click="save_Click"
+                          Foreground="{StaticResource InkBrush03}" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        <RelativePanel>
+        <Grid x:Name="ClientStackPanel"
+              Background="{StaticResource InkBrush01}"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.AlignLeftWithPanel="True">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Image Height="24"
+                       Margin="8,0,0,0"
+                       Source="Assets/inkit_logo.png" />
+            </StackPanel>
+        </Grid>
+
+            <Grid AllowDrop="True"
+                  DragOver="Grid_DragOver"
+                  Drop="Grid_Drop"
+                  x:Name="DrawingArea"
+                  Background="{StaticResource InkBrush03}"
+                  RelativePanel.Below="ClientStackPanel"
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True">
+
+                <TextBlock x:Name="RecoResult"></TextBlock>
+                <Image x:Name="Image"
+                       CanDrag="True"
+                       Margin="10,10,10,0" />
+
+                <InkCanvas Name="ink" />
+            </Grid>
+        </RelativePanel>
+        
+    </Grid>
+</Page>
